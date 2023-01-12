@@ -34,6 +34,7 @@ export default {
                 .then(() => {
                     this.getData();
                 });
+            this.newTodo = '';
         }
     },
     mounted() {
