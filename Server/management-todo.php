@@ -19,8 +19,6 @@ $todoList = [
     ]
 ];
 
-// $jsonTodoList = json_encode($todoList);
-// file_put_contents('todo.json', $jsonTodoList);
 
 $jsonTodoList = json_encode($todoList);
 file_put_contents('todo.json', $jsonTodoList);

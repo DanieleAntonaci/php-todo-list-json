@@ -7,6 +7,7 @@ export default {
         return {
             apiUrl: "http://localhost:8888/",
             todoList: [],
+            newTodo: ''
 
         }
     },
@@ -20,6 +21,19 @@ export default {
                     this.todoList = data;
                 });
 
+        },
+        formSubmit(e) {
+            e.preventDefault();
+
+            const params = {
+                params: {
+                    'newTodo': this.newTodo
+                }
+            };
+            axios.get(this.apiUrl + 'api-create-todo.php', params)
+                .then(() => {
+                    this.getData();
+                });
         }
     },
     mounted() {
@@ -29,7 +43,16 @@ export default {
 </script>
 
 <template>
-  gg
+    <form @submit="formSubmit">
+        <input type="text" name="newTodo" v-model="newTodo">
+        <input type="submit" value="newTodo">
+    </form>
+
+  <ul>
+    <li v-for="todoElement in todoList">
+        {{ todoElement.text }}
+    </li>
+  </ul>
 </template>
 
 <style lang="scss" scoped>
