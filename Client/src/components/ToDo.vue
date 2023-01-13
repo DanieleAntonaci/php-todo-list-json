@@ -35,6 +35,19 @@ export default {
                     this.getData();
                 });
             this.newTodo = '';
+        },
+        completedTask(task, todoElement) {
+            let invert = this.todoList[task].completed == true ? false : true;
+            const params = {
+                'taskStatus': invert,
+                'position': task,
+                'element': todoElement,
+            }
+            axios.get(this.apiUrl + 'api-completed.php', { params })
+                .then(() => {
+                    this.getData();
+                });
+            console.log(this.todoList[task].completed, invert);
         }
     },
     mounted() {
@@ -50,9 +63,11 @@ export default {
     </form>
 
   <ul>
-    
-    <li v-for="todoElement in todoList" :class="todoElement.completed ? 'done' : ''">
+
+    <li v-for="(todoElement, index) in todoList" :key="index" :class="todoElement.completed ? 'done' : ''">
         {{ todoElement.text }}
+        {{ todoElement.completed }}
+        <button @click="completedTask(index, todoElement.text)"> ok</button>
     </li>
 
   </ul>
