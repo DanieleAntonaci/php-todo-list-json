@@ -56,6 +56,17 @@ export default {
                 .then(() => {
                     this.getData();
                 });
+        }, deleteTask(index) {
+
+
+            const params = {
+                'index': index
+            }
+
+            axios.get(this.apiUrl + 'api-delete.php', { params })
+                .then(() => {
+                    this.getData();
+                })
         }
     },
     mounted() {
@@ -73,7 +84,7 @@ export default {
             <li v-for="(todoElement, index) in todoList" :key="index" :class="todoElement.completed ? 'done' : ''" @click="completedTask(index, todoElement.text)">
                 {{ todoElement.text }}
                 
-                <!-- <button @click="completedTask(index, todoElement.text)"> ok</button> -->
+                <button @click="deleteTask(index)"> deleteTask</button>
             </li>
             
         </ul>
