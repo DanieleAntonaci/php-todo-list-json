@@ -128,6 +128,8 @@ export default {
                 width: 400px;
                 vertical-align: middle;
                 border-radius: 5px 0 0 5px;
+                font-size: 25px;
+                padding-left: 15px;
             }
 
             &.btn {

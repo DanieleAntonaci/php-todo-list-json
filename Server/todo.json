@@ -1,18 +1,1 @@
-[
-    {
-        "text": "Fare la spesa",
-        "completed": true
-    },
-    {
-        "text": "Comprare le batterie",
-        "completed": false
-    },
-    {
-        "text": "Studiare la lezione di oggi",
-        "completed": false
-    },
-    {
-        "text": "Anadare dal gommista",
-        "completed": true
-    }
-]
+[{"text":"Fare la spesa","completed":true},{"text":"Comprare le batterie","completed":false},{"text":"Studiare la lezione di oggi","completed":false},{"text":"Anadare dal gommista","completed":true},{"text":"Sistemare la camera","completed":false}]
