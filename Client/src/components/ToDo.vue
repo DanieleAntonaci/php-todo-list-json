@@ -38,6 +38,7 @@ export default {
                         this.getData();
                     });
                 this.newTodo = '';
+                console.log(this.todoList);
             }
         },
         completedTask(task, todoElement) {
@@ -58,7 +59,6 @@ export default {
                 });
         }, deleteTask(index) {
 
-
             const params = {
                 'index': index
             }
@@ -67,6 +67,7 @@ export default {
                 .then(() => {
                     this.getData();
                 })
+            console.log(this.todoList);
         }
     },
     mounted() {
@@ -81,11 +82,17 @@ export default {
         <h1>Todo List</h1>
         <ul>
             
-            <li v-for="(todoElement, index) in todoList" :key="index" :class="todoElement.completed ? 'done' : ''" @click="completedTask(index, todoElement.text)">
-                {{ todoElement.text }}
+            <li v-for="(todoElement, index) in todoList" :key="index">
+                
+                <span :class="todoElement.completed ? 'done' : ''"  @click="completedTask(index, todoElement.text)">
+                    {{ todoElement.text }}
+
+                </span>
+                
                 
                 <button @click="deleteTask(index)"> deleteTask</button>
             </li>
+
             
         </ul>
         
@@ -124,8 +131,10 @@ export default {
             padding: 20px;
             min-width: 600px;
             border-bottom: #6d767d 1px solid;
+            display: flex;
+            justify-content: space-between;
 
-            &.done {
+            .done {
                 text-decoration: line-through;
             }
         }
