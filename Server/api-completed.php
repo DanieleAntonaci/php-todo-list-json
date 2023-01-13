@@ -8,6 +8,8 @@ $taskStatus = $_GET['taskStatus'];
 $position = $_GET['position'];
 $element = $_GET['element'];
 
+
+// converte la stringa in booleano
 if($taskStatus == 'false'){
     $boolaenValue = false;
 }
