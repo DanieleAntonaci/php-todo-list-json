@@ -90,7 +90,9 @@ export default {
                 </span>
                 
                 
-                <button @click="deleteTask(index)"> deleteTask</button>
+                <button @click="deleteTask(index)" class="btn">
+                    <font-awesome-icon icon="fa-solid fa-trash" />
+                </button>
             </li>
 
             
@@ -134,8 +136,18 @@ export default {
             display: flex;
             justify-content: space-between;
 
+            button {
+                padding: 3px 10px;
+                background-color: red;
+                color: white;
+                font-size: 20px;
+                border: 0;
+                border-radius: 8px;
+            }
+
             .done {
                 text-decoration: line-through;
+
             }
         }
     }
