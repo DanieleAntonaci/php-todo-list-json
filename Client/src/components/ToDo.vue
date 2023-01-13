@@ -50,12 +50,23 @@ export default {
     </form>
 
   <ul>
-    <li v-for="todoElement in todoList">
+    
+    <li v-for="todoElement in todoList" :class="todoElement.completed ? 'done' : ''">
         {{ todoElement.text }}
     </li>
+
   </ul>
+
 </template>
 
 <style lang="scss" scoped>
+ul {
+    li {
+        list-style-type: none;
 
+        &.done {
+            text-decoration: line-through;
+        }
+    }
+}
 </style>
